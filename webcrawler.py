@@ -15,7 +15,7 @@ while len(urls) > 0 and len(opened) < maxNumUrl:
     try:
         curr_url=urls.pop(0)
         print("num. of URLs in stack: %d " % len(urls))
-        print("Trying to access= "+curr_url)
+        # print("Trying to access= "+curr_url)
         req = urllib.request.Request(curr_url,headers={'User-Agent': 'Mozilla/5.0'})
         webpage = urllib.request.urlopen(req).read()
         opened.append(curr_url)
@@ -33,9 +33,9 @@ while len(urls) > 0 and len(opened) < maxNumUrl:
         childUrl = tag['href'] #extract just the link
         o_childurl = childUrl
         childUrl = urllib.parse.urljoin(seed_url, childUrl)
-        print("seed_url=" + seed_url)
-        print("original childurl=" + o_childurl)
-        print("childurl=" + childUrl)
+        # print("seed_url=" + seed_url)
+        # print("original childurl=" + o_childurl)
+        # print("childurl=" + childUrl)
         print("seed_url in childUrl=" + str(seed_url in childUrl))
         print("Have we seen this childUrl=" + str(childUrl in seen))
         if seed_url in childUrl and childUrl not in seen:
